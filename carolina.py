@@ -159,24 +159,24 @@ def getDustDensity(rcyl=None, phi=None, z=None, z0=None, hp=None, sigma=None, gr
     xx = xx.swapaxes(0,1)
     yy = yy.swapaxes(0,1)
 
-#rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
-
-#for iy in range(grid.ny):
-#rho_env[:,iy,:,0] = ppar['rho0Env'] * (yy/au)**ppar['prhoEnv'] #* np.exp(-(yy/ppar['hprEnv'])**2)
-
-    print "def thetac"
-    
-    thetac = ppar['thetac_deg']*pi/180. #convert from degrees to radian
-    
     rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
-    
-        for iy in range(grid.ny):
-            if (grid.y[iy]) >= thetac:
-                rho_env[:,iy,0,:] = ppar['rho0Env'] * (yy/au)**ppar['prhoEnv']
-            else:
-                rho_env[:,iy,0,:] = ppar['bgdens'] * (yy/au)**0
 
-    print "finish thetac"
+    for iz in range(grid.nz):
+       rho_env[:,:,iz,0] = ppar['rho0Env'] * (xx/au)**ppar['prhoEnv'] #* np.exp(-(yy/ppar['hprEnv'])**2)
+
+#    print "def thetac"
+    
+#    thetac = ppar['thetac_deg']*pi/180. #convert from degrees to radian
+    
+#    rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
+    
+#        for iy in range(grid.ny):
+#            if (grid.y[iy]) >= thetac:
+#                rho_env[:,iy,0,:] = ppar['rho0Env'] * (yy/au)**ppar['prhoEnv']
+#            else:
+#                rho_env[:,iy,0,:] = ppar['bgdens'] * (yy/au)**0
+
+#    print "finish thetac"
     
 
 # Get the gas density
