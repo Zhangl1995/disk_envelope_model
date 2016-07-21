@@ -166,7 +166,7 @@ def getDustDensity(rcyl=None, phi=None, z=None, z0=None, hp=None, sigma=None, gr
 
 #    print "def thetac"
     
-#    thetac = ppar['thetac_deg']*pi/180. #convert from degrees to radian
+#    thetac = plb.fabs(ppar['thetac_deg']*pi/180.) #convert from degrees to radian
     
 #    rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
     
