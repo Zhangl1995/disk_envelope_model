@@ -158,13 +158,15 @@ def getDustDensity(rcyl=None, phi=None, z=None, z0=None, hp=None, sigma=None, gr
     xx,yy = np.meshgrid(grid.x, np.pi/2.-grid.y)
     xx = xx.swapaxes(0,1)
     yy = yy.swapaxes(0,1)
+#=================================envelope density no cavity=======================================================
+   # rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
 
-    rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
+   # for iz in range(grid.nz):
+   #    rho_env[:,:,iz,0] = ppar['rho0Env'] * (xx/au)**ppar['prhoEnv'] #* np.exp(-(yy/ppar['hprEnv'])**2)
+       
+#==================================================================================================================
 
-    for iz in range(grid.nz):
-       rho_env[:,:,iz,0] = ppar['rho0Env'] * (xx/au)**ppar['prhoEnv'] #* np.exp(-(yy/ppar['hprEnv'])**2)
-
-#    print "def thetac"
+#========================================TEST_1====================================================================
     
 #    thetac = plb.fabs(ppar['thetac_deg']*pi/180.) #convert from degrees to radian
     
@@ -176,9 +178,19 @@ def getDustDensity(rcyl=None, phi=None, z=None, z0=None, hp=None, sigma=None, gr
 #            else:
 #                rho_env[:,iy,0,:] = ppar['bgdens'] * (yy/au)**0
 
-#    print "finish thetac"
-    
+#==================================================================================================================
 
+
+#========================================= envelope density + cavity===============================================
+
+    thetac = np.deg2rad(90) - np.deg2rad(ppar['thetac_deg']) #convert from degrees to radian
+    rho_env   = np.zeros([grid.nx, grid.ny, grid.nz, 1], dtype=np.float64) + ppar['bgdens']
+    for iz in range(grid.nz):
+        for iy in range(grid.ny):
+            for ix in range(grid.nx):
+                if np.abs(yy[ix,iy]) <= np.abs(thetac): rho_env[ix,iy,iz,0] = ppar['rho0Env'] * (xx[ix,iy]/au)**ppar['prhoEnv']
+
+#====================================================================================================================
 # Get the gas density
     rhogas = getGasDensity(rcyl=rcyl, phi=phi, z=z, z0=z0, hp=hp, sigma=sigma, grid=grid, ppar=ppar)
 
