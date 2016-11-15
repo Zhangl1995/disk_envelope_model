@@ -27,13 +27,14 @@ zbound                    = [0., 2.0*pi]  # Boundaries for the z grid
 # -------------------------------------------------------------------------------------------------------------------------
 # Block: Dust opacity
 # -------------------------------------------------------------------------------------------------------------------------
-dustkappa_ext             = ['silicate']  #
-gdens                     = [3.6, 1.8]  # Bulk density of the materials in g/cm^3
-gsdist_powex              = -3.5  # Grain size distribution power exponent
-gsmax                     = 10.0  # Maximum grain size
-gsmin                     = 0.1  # Minimum grain size
-lnk_fname                 = ['/disk2/juhasz/Data/JPDOC/astrosil/astrosil_WD2001_new.lnk', '/disk2/juhasz/Data/JPDOC/carbon/A/cel600.lnk']  #
-mixabun                   = [0.75, 0.25]  # Mass fractions of the dust components to be mixed
+#dustkappa_ext             = ['silicate']  #
+dustkappa_ext             = ['osshenn_thickextra']
+#gdens                     = [3.6, 1.8]  # Bulk density of the materials in g/cm^3
+#gsdist_powex              = -3.5  # Grain size distribution power exponent
+#gsmax                     = 10.0  # Maximum grain size
+#gsmin                     = 0.1  # Minimum grain size
+#lnk_fname                 = ['/disk2/juhasz/Data/JPDOC/astrosil/astrosil_WD2001_new.lnk', '/disk2/juhasz/Data/JPDOC/carbon/A/cel600.lnk']  #
+#mixabun                   = [0.75, 0.25]  # Mass fractions of the dust components to be mixed
 ngs                       = 1  # Number of grain sizes
 # -------------------------------------------------------------------------------------------------------------------------
 # Block: Gas line RT
@@ -68,17 +69,17 @@ gasspec_mol_dissoc_taulim = [1.0]  # Continuum optical depth limit below which a
 gasspec_mol_freezeout_dfact = [1e-3]  # Factor by which the molecular abundance should be decreased in the frezze-out zone
 gasspec_mol_freezeout_temp = [19.0]  # Freeze-out temperature of the molecules in Kelvin
 hrdisk                    = 0.1  # Ratio of the pressure scale height over radius at hrpivot
-hrpivot                   = 200.0*au  # Reference radius at which Hp/R is taken
+hrpivot                   = 25.0*au  # Reference radius at which Hp/R is taken
 mdisk                     = 1e-4*ms  # Mass of the disk (either sig0 or mdisk should be set to zero or commented out)
 plh                       = 1./7.  # Flaring index
 plsig1                    = -1.0  # Power exponent of the surface density distribution as a function of radius
-rdisk                     = 200.0*au  # Outer radius of the disk
+rdisk                     = 25.0*au  # Outer radius of the disk
 rin                       = 1.0*au  # Inner radius of the disk
 sig0                      = 0.0  # Surface density at rdisk
 srim_plsig                = 2.0  # Power exponent of the density reduction inside of srim_rout*rin
 srim_rout                 = 2.0  # Outer boundary of the smoothing in the inner rim in terms of rin
 # parameter envelope / Example model: A 2D envelope with density dependence on the theta coordinate in spherical grid
 prhoEnv                  = -2.0  # Power exponent of the radial density distribution
-rho0Env                  = 1e-15  # Central density
-thetac_deg               = 40  # Opening angle of the cavity
+rho0Env                  = 5e-15  # Central density
+thetac_deg               = 10  # Opening angle of the cavity
 
