@@ -16,11 +16,12 @@ radmc3dPy.setup.problemSetupDust('carolina',binary=True)
 
 # Calculate the dust temperature
 os.system('radmc3d mctherm setthreads 4')
+os.system('radmc3d sed incl 67 phi 30 setthreads 40')
 
 #Make an image
-radmc3dPy.image.makeImage(npix=500,sizeau=50.,wav=2775.,incl=89,posang=-70.)
+radmc3dPy.image.makeImage(npix=1000,sizeau=2000,wav=2775.,incl=67,posang=170.)
 imag=radmc3dPy.image.readImage()
-radmc3dPy.image.plotImage(imag,au=True,dpc=240.,log=True,maxlog=5)
+radmc3dPy.image.plotImage(imag,au=True,dpc=240.,log=True,maxlog=5,cmap='hot')
 plb.savefig('figure+e6pho.eps', bbox_inches='tight')
 #plb.savefig("/Users/cagurto/Documents/Newradmc3d/version_0.39/python/model-py/figure1.png")
 #plb.clf()
