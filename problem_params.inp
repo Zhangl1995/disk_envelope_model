@@ -69,8 +69,8 @@ gasspec_mol_dissoc_taulim = [1.0]  # Continuum optical depth limit below which a
 gasspec_mol_freezeout_dfact = [1e-3]  # Factor by which the molecular abundance should be decreased in the frezze-out zone
 gasspec_mol_freezeout_temp = [19.0]  # Freeze-out temperature of the molecules in Kelvin
 hrdisk                    = 0.1  # Ratio of the pressure scale height over radius at hrpivot
-hrpivot                   = 25.0*au  # Reference radius at which Hp/R is taken
-mdisk                     = 1e-4*ms  # Mass of the disk (either sig0 or mdisk should be set to zero or commented out)
+hrpivot                   = 250.0*au  # Reference radius at which Hp/R is taken
+mdisk                     = 1e-4*ms  # Mass of the disk (either sig0 or mdisk should be set to zero or commented out) !!!should be 0.1*ms
 plh                       = 1./7.  # Flaring index
 plsig1                    = -1.0  # Power exponent of the surface density distribution as a function of radius
 rdisk                     = 25.0*au  # Outer radius of the disk
@@ -81,6 +81,6 @@ srim_rout                 = 2.0  # Outer boundary of the smoothing in the inner 
 # parameter envelope / Example model: A 2D envelope with density dependence on the theta coordinate in spherical grid
 prhoEnv                  = -2.0  # Power exponent of the radial density distribution
 #rho0Env                  = 5e-15  # Central density
-rho0Env                  = 5e-13
+rho0Env                  = 5e-13 # New central density gr/cm3 dust density volume
 thetac_deg               = 10  # Opening angle of the cavity
 
