@@ -38,7 +38,7 @@ device,/close_file
 radmc3dPy.image.makeImage(npix=1000,sizeau=100.,wav=3000.,incl=67,posang=80)
 imag=radmc3dPy.image.readImage()
 #radmc3dPy.image.plotImage(imag,au=True,dpc=240.,log=True,maxlog=5,cmap='afmhot')
-radmc3dPy.image.plotImage(imag,au=True,dpc=240.,log=True,vmin=-3,vmax=-10,cmap='CMRmap',bunit='snu')
+radmc3dPy.image.plotImage(imag,au=True,dpc=240.,log=True,vmin=-10,vmax=-3,cmap='CMRmap',bunit='snu')
 #plb.savefig('figure+e6pho.eps', bbox_inches='tight')
 #plb.savefig("/Users/cagurto/Documents/Newradmc3d/version_0.39/python/model-py/figure1.png")
 plb.clf()
