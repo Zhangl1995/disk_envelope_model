@@ -188,7 +188,8 @@ def getDustDensity(rcyl=None, phi=None, z=None, z0=None, hp=None, sigma=None, gr
     for iz in range(grid.nz):
         for iy in range(grid.ny):
             for ix in range(grid.nx):
-                if np.abs(yy[ix,iy]) <= np.abs(thetac): rho_env[ix,iy,iz,0] = ppar['rho0Env'] * (xx[ix,iy]/au)**ppar['prhoEnv']
+                if np.abs(yy[ix,iy]) <= np.abs(thetac): rho_env[ix,iy,iz,0] = ppar['rho0Env'] * 1./(1. + (xx[ix,iy]/au)**ppar['prhoEnv'])
+#                 if np.abs(yy[ix,iy]) <= np.abs(thetac): rho_env[ix,iy,iz,0] = ppar['rho0Env'] * (xx[ix,iy]/au)**ppar['prhoEnv']
 
 #====================================================================================================================
 # Get the gas density
